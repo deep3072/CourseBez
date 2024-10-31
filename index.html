@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with CourseBez</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .header {
+            background-image: url('https://www.pfw.edu/sites/default/files/styles/hero/public/images/20170830-Campus-Aerial-IUFW-JB.jpg?h=34eee186&itok=Wvm06mqB');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        h1 {
+            color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+        h2 {
+            color: #333;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        p {
+            color: #555;
+            font-size: 1.2em;
+        }
+        .footer {
+    background-color: #CEB888; /* Footer background color */
+    color: black; /* Text color */
+    text-align: center; /* Center align text */
+    padding: 20px; /* Add some padding */
+    margin-top: 70px; /* Adds space above the footer */
+    position: relative; /* Positioning */
+    bottom: 0; /* Stick to bottom */
+    width: 100%; /* Full width */
+    font-family: Arial, sans-serif; /* Font family */
+}
+
+    </style>
+    <!-- https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/10/30/08/20241030085202-H10L306A.json -->
+</head>
+<body>
+    <!-- Header Section with Background Image -->
+    <div class="header"></div>
+
+    <!-- Additional Welcome Text Below the Header Image -->
+    <h2>Welcome to goPFW</h2>
+    <p>Chat with our CourseBez for assistance.</p>
+
+    <footer class="footer">
+        <p>&copy; 2024 PFW CourseBez.</p>
+    </footer>
+    
+
+    <!-- Botpress Embed Code -->
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/10/30/08/20241030085202-SS29KKIE.js" defer></script>
+
+    <script>
+        // Function to initialize Botpress and add event listeners
+        function initBotpress() {
+            console.log("Attempting to initialize Botpress");
+
+            if (window.botpressWebChat) {
+                console.log("Botpress WebChat initialized");
+
+                // Adding event listener for message received event
+                window.botpressWebChat.onEvent(
+                    (event) => {
+                        console.log("Event received:", event);
+                        if (event.type === 'MESSAGE.RECEIVED') {
+                            console.log('A new message was received!');
+                        }
+                    },
+                    ['MESSAGE.RECEIVED']
+                );
+            } else {
+                console.log("Botpress WebChat not available, retrying...");
+                setTimeout(initBotpress, 500); // Retry after 500 ms if botpressWebChat is not ready
+            }
+        }
+
+        // Wait for the page to fully load before initializing Botpress
+        window.addEventListener('load', function() {
+            initBotpress(); // Ensure initBotpress runs after page load
+        });
+    </script>
+</body>
+</html>
+<!-- https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/10/30/08/20241030085202-H10L306A.json -->
+
+<!-- <!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with CourseBez</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .header {
+            background-image: url('https://www.pfw.edu/sites/default/files/styles/hero/public/images/20170830-Campus-Aerial-IUFW-JB.jpg?h=34eee186&itok=Wvm06mqB');
+            background-size: cover;
+            background-position: center;
+            height: 500px; /* Increased height for a larger header */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        h1 {
+            color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            margin: 0;
+        }
+        h2 {
+            color: #333;
+            font-size: 2em;
+            margin: 20px 0;
+        }
+        p {
+            color: #555;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+    </div>
+
+    
+    <h2>Welcome to goPFW</h2>
+    <p>Chat with our bot for assistance.</p>
+
+    
+    <script src="https://cdn.botpress.cloud/webchat/v2.2/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2024/10/30/08/20241030085202-SS29KKIE.js" defer></script>
+
+
+    
+    
+    <script>
+        window.botpressWebChat.onEvent(
+            (event) => {
+                if (event.type === 'MESSAGE.RECEIVED') {
+                    console.log('A new message was received!')
+                    if(event.value.payload.text === 'You can choose a file') {
+                        const fileInput = document.createElement('input');
+                        fileInput.type = 'file';
+                        fileInput.addEventListener('change', (event) => {
+                            const file = event.target.files[0];
+                            console.log('Selected File:', file);
+                            const reader = new FileReader();
+                            reader.onload = async function(event) {
+                                const fileContent = event.target.result;
+                                const title = file.name;
+                                console.log('File Content:', fileContent);
+                                console.log('File Name:', title);
+                                window.botpressWebChat.sendPayload({
+                                    type: 'trigger',
+                                    payload: {
+                                        title: title,
+                                        content: fileContent
+                                    }
+                                })
+                            }
+                            reader.readAsText(file);
+                        })
+                        fileInput.click();
+                    }
+                }
+            },
+            ['MESSAGE.RECEIVED']
+        )
+        // window.botpressWebChat.init({
+        //     botId: "remarkable-walrus",  // Replace with your actual bot ID
+        //     hostUrl: "https://cdn.botpress.cloud/webchat/v2.2",
+        //     messagingUrl: "https://cdn.botpress.cloud/api/v1"
+        // });
+    </script>
+</body>
+</html>
+-->
+
+    <!-- https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/10/30/08/20241030085202-H10L306A.json -->
+    <!-- https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/10/30/08/20241030085202-H10L306A.json -->
+
+
+    
