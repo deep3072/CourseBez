@@ -8,10 +8,13 @@ Course Bez is an AI-powered virtual assistant developed using Botpress. It enabl
 - Profile Management: Allow	users	to create	and	manage profiles	where	they can update their profile details.
 - Embedded the bot in HTML page for students to query through their web interface.
 
-  ![image](https://github.com/user-attachments/assets/63a94dae-edf4-474c-8fa5-544de1ac1e00)
+  ![image](https://github.com/user-attachments/assets/cf877544-df0a-45d1-b63d-5c37afbe764d)
+
   
 - Sample display of student asking their doubts.
 
-  ![image](https://github.com/user-attachments/assets/11c199f9-8c23-4b3e-b081-2f6711152442)
+  ![image](https://github.com/user-attachments/assets/f9f7fd68-0941-46c8-92b8-fa481c117919)
 
-  ![image](https://github.com/user-attachments/assets/63f86f31-e2f4-4983-b4cd-d6e493b207f5)
+
+  ![image](https://github.com/user-attachments/assets/68229c61-f2e6-49cd-a9e7-97388a72eea1)
+
